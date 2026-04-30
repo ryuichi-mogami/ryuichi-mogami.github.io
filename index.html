@@ -50,15 +50,15 @@ body {
 }
 .skip-link:focus { left: .5rem; z-index: 1000; }
 
-.toc,
-main > section,
-.site-footer {
+.site-header,
+.site-footer,
+main > section {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: .5rem;
+  border-radius: .75rem;
 }
 
-.toc,
+.site-header,
 main > section,
 .site-footer {
   margin: 1rem 0;
@@ -81,7 +81,7 @@ h3 { margin: 0 0 .4rem; }
   font-weight: 500;
 }
 
-.toc ul {
+.site-header nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -117,12 +117,28 @@ dd { margin: 0; }
 }
 
 @media (max-width: 720px) {
+  .site-header,
+  .site-footer {
+    padding: .9rem;
+    border-radius: .6rem;
+  }
+
+  .site-header ul {
+    gap: .5rem .75rem;
+    font-size: .95rem;
+  }
+
+  .site-footer p {
+    margin: .25rem 0;
+    font-size: .92rem;
+  }
+
   .data-list div { grid-template-columns: 1fr; }
 }
 
 @media print {
   body { background: #fff; font-size: 11pt; }
-  .toc { display: none; }
+  .site-header { display: none; }
   .site-footer, main > section {
     border: 0;
     margin: 0 0 .75rem;
@@ -153,7 +169,8 @@ dd { margin: 0; }
   <body>
     <a class="skip-link" href="#main">本文へスキップ</a>
 
-    <nav class="toc" aria-label="ページ内ナビゲーション">
+    <header class="site-header">
+      <nav aria-label="ページ内ナビゲーション">
       <div class="inner">
         <ul>
           <li><a href="#affiliation">Current Affiliation</a></li>
@@ -162,7 +179,8 @@ dd { margin: 0; }
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-    </nav>
+      </nav>
+    </header>
 
     <main id="main" class="inner">
       <section id="affiliation" aria-labelledby="affiliation-title">
