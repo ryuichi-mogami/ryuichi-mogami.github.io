@@ -51,7 +51,7 @@ body {
 .skip-link:focus { left: .5rem; z-index: 1000; }
 
 .toc,
-main section,
+main > section,
 .site-footer {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -59,7 +59,7 @@ main section,
 }
 
 .toc,
-main section,
+main > section,
 .site-footer {
   margin: 1rem 0;
   padding: 1.1rem;
@@ -67,7 +67,12 @@ main section,
 
 h1 { margin: 0 0 .4rem; line-height: 1.3; }
 h2 { margin-top: 0; }
-h3 { margin-bottom: .4rem; }
+h3 { margin: 0 0 .4rem; }
+
+
+#publications > section {
+  contain: layout paint;
+}
       
 .name-en,
 .period,
@@ -118,7 +123,7 @@ dd { margin: 0; }
 @media print {
   body { background: #fff; font-size: 11pt; }
   .toc { display: none; }
-  .site-footer, main section {
+  .site-footer, main > section {
     border: 0;
     margin: 0 0 .75rem;
     padding: 0;
