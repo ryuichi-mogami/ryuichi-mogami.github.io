@@ -9,8 +9,6 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -34,7 +32,6 @@ body {
 }
 .skip-link:focus { left: .5rem; z-index: 1000; }
 
-.site-header,
 .toc,
 main section,
 .site-footer {
@@ -43,36 +40,31 @@ main section,
   border-radius: .5rem;
 }
 
-.site-header,
+.toc,
 main section,
 .site-footer {
   margin: 1rem 0;
-  padding: 1.25rem;
+  padding: 1.1rem;
 }
 
-h1 { margin: .25rem 0; line-height: 1.3; }
+h1 { margin: 0 0 .4rem; line-height: 1.3; }
 h2 { margin-top: 0; }
-h3 { margin-bottom: .5rem; }
+h3 { margin-bottom: .4rem; }
 
-.role,
 .name-en,
-.affiliation-summary,
-.keywords,
-.meta,
 .period,
 .status {
   color: var(--muted);
-  margin: .15rem 0;
+  font-weight: 500;
 }
 
-.toc { margin: 0 auto 1rem; }
 .toc ul {
   margin: 0;
-  padding: .75rem 1rem;
+  padding: 0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: .75rem 1rem;
+  gap: .7rem 1rem;
 }
 
 a { color: var(--accent); text-underline-offset: .2em; }
@@ -85,40 +77,29 @@ a:focus-visible {
 .data-list { margin: 0; }
 .data-list div {
   display: grid;
-  grid-template-columns: 12rem 1fr;
+  grid-template-columns: 10.5rem 1fr;
   border-bottom: 1px solid var(--line);
-  padding: .45rem 0;
+  padding: .4rem 0;
 }
 .data-list div:last-child { border-bottom: 0; }
 dt { font-weight: 650; }
 dd { margin: 0; }
 
-.achievement-list,
 .timeline,
-.contact-list {
+.contact-list,
+.plain-list {
   margin: 0;
   padding-left: 1.2rem;
 }
-.achievement-list li,
-.timeline li,
-.contact-list li { margin: .4rem 0; }
-
-.year {
-  display: inline-block;
-  min-width: 4.5em;
-  font-variant-numeric: tabular-nums;
-  font-weight: 650;
-}
-.title { font-weight: 600; }
 
 @media (max-width: 720px) {
-  .data-list div { grid-template-columns: 1fr; gap: .1rem; }
+  .data-list div { grid-template-columns: 1fr; }
 }
 
 @media print {
   body { background: #fff; font-size: 11pt; }
   .toc { display: none; }
-  .site-header, main section, .site-footer {
+  .site-footer, main section {
     border: 0;
     margin: 0 0 .75rem;
     padding: 0;
