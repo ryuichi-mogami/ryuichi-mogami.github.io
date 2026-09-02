@@ -39,11 +39,15 @@
         --text: #1d2430;
         --muted: #4b5563;
         --line: #d7dce4;
-        --accent: #1d4ed8;
+        --accent: #00582d;
       }
 
       * {
         box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
@@ -66,6 +70,8 @@
         margin: 0 auto;
       }
 
+      /* Skip link */
+
       .skip-link {
         position: absolute;
         left: -9999px;
@@ -80,18 +86,14 @@
         z-index: 1000;
       }
 
+      /* Main containers */
+
       .site-header,
       .site-footer,
       main > section {
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: .75rem;
-      }
-
-      main > section {
-        contain: layout paint;
-        content-visibility: auto;
-        contain-intrinsic-size: 1px 520px;
       }
 
       .site-header,
@@ -101,9 +103,18 @@
         padding: 1.1rem;
       }
 
-      h1 {
-        margin: 0 0 .4rem;
-        line-height: 1.3;
+      main > section {
+        contain: layout paint;
+        content-visibility: auto;
+        contain-intrinsic-size: 1px 520px;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3 {
+        color: var(--text);
       }
 
       h2 {
@@ -114,31 +125,69 @@
         margin: .4rem 0 .4rem;
       }
 
-      .name-en,
-      .name-ja,
-      .period,
-      .status {
-        color: var(--muted);
-        font-weight: 500;
+      /*
+       * Name
+       *
+       * English name is the primary heading.
+       * Japanese name is presented as secondary information below it.
+       */
+
+      .profile-name {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .1rem;
+
+        margin: 0 0 .65rem;
+        line-height: 1.15;
+      }
+
+      .name-en {
+        display: block;
+
+        color: var(--text);
+
+        font-size: clamp(2.2rem, 6vw, 3.4rem);
+        font-weight: 750;
+
+        letter-spacing: -0.025em;
       }
 
       .name-ja {
-        margin-left: .4rem;
-        font-size: .8em;
+        display: block;
+
+        color: var(--muted);
+
+        font-size: 1.05rem;
+        font-weight: 500;
+
+        letter-spacing: .04em;
       }
+
+      /* Navigation */
 
       .site-header nav ul {
         margin: 0;
         padding: 0;
+
         list-style: none;
+
         display: flex;
         flex-wrap: wrap;
+
         gap: .7rem 1rem;
       }
 
+      /* Links */
+
       a {
-        color: #00582d;
+        color: var(--accent);
         text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-underline-offset: .15em;
       }
 
       a:focus-visible {
@@ -147,6 +196,19 @@
         border-radius: 2px;
       }
 
+      /* Profile links */
+
+      .profile-links {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: .4rem 1rem;
+
+        margin: .2rem 0 .8rem;
+      }
+
+      /* Definition list */
+
       .data-list {
         margin: 0;
       }
@@ -154,8 +216,10 @@
       .data-list div {
         display: grid;
         grid-template-columns: 10.5rem 1fr;
-        border-bottom: 1px solid var(--line);
+
         padding: .4rem 0;
+
+        border-bottom: 1px solid var(--line);
       }
 
       .data-list div:last-child {
@@ -170,33 +234,40 @@
         margin: 0;
       }
 
+      /* Lists */
+
       .timeline,
       .contact-list,
       .plain-list {
         margin: 0;
         padding-left: 1.2rem;
+
         list-style-type: disc;
       }
+
+      .plain-list li + li,
+      .contact-list li + li {
+        margin-top: .4rem;
+      }
+
+      /* Paragraph */
 
       p {
         margin: .25rem 0;
       }
 
-      .profile-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: .4rem 1rem;
-        margin: .2rem 0 .8rem;
-      }
+      /* Education */
 
       .education-list {
         margin: 0;
         padding: 0;
+
         list-style: none;
       }
 
       .education-list li {
         padding: .6rem 0;
+
         border-bottom: 1px solid var(--line);
       }
 
@@ -208,9 +279,18 @@
         font-weight: 650;
       }
 
+      .period,
+      .status {
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      /* Mobile */
+
       @media (max-width: 720px) {
         .site-header,
-        .site-footer {
+        .site-footer,
+        main > section {
           padding: .9rem;
           border-radius: .6rem;
         }
@@ -232,7 +312,17 @@
         .data-list div {
           grid-template-columns: 1fr;
         }
+
+        .name-en {
+          font-size: clamp(2rem, 10vw, 2.8rem);
+        }
+
+        .name-ja {
+          font-size: 1rem;
+        }
       }
+
+      /* Print */
 
       @media print {
         body {
@@ -302,47 +392,78 @@
     </script>
   </head>
 
+
   <body>
+
     <a class="skip-link" href="#main">
       Skip to main content
     </a>
 
+
     <header class="site-header">
       <nav aria-label="Main navigation">
         <div class="inner">
+
           <ul>
             <li>
-              <a href="#affiliation">Current Affiliation</a>
+              <a href="#affiliation">
+                Current Affiliation
+              </a>
             </li>
+
             <li>
-              <a href="#publications">Publications</a>
+              <a href="#publications">
+                Publications
+              </a>
             </li>
+
             <li>
-              <a href="#education">Education</a>
+              <a href="#education">
+                Education
+              </a>
             </li>
+
             <li>
-              <a href="#contact">Contact</a>
+              <a href="#contact">
+                Contact
+              </a>
             </li>
           </ul>
+
         </div>
       </nav>
     </header>
 
+
     <main id="main" class="inner">
+
+
+      <!-- Profile -->
 
       <section
         id="affiliation"
         aria-labelledby="affiliation-title"
       >
-        <h1 id="affiliation-title">
-          <span class="name-en">Ryuichi Mogami</span>
+
+        <h1
+          id="affiliation-title"
+          class="profile-name"
+        >
+          <span class="name-en">
+            Ryuichi Mogami
+          </span>
+
           <span
             class="name-ja"
             lang="ja"
-          >最上龍一</span>
+          >
+            最上龍一
+          </span>
         </h1>
 
+
         <div class="profile-links">
+
           <a
             href="https://scholar.google.com/citations?user=BPmeAuwAAAAJ"
             target="_blank"
@@ -366,36 +487,59 @@
           >
             GitHub
           </a>
+
         </div>
 
+
         <dl class="data-list">
-          <div>
-            <dt>Affiliation</dt>
-            <dd>Yokohama National University</dd>
-          </div>
 
           <div>
-            <dt>Degree</dt>
-            <dd>Master's Program</dd>
+            <dt>
+              Affiliation
+            </dt>
+
+            <dd>
+              Yokohama National University
+            </dd>
           </div>
+
+
+          <div>
+            <dt>
+              Degree
+            </dt>
+
+            <dd>
+              Master's Program
+            </dd>
+          </div>
+
         </dl>
+
       </section>
 
+
+      <!-- Publications -->
 
       <section
         id="publications"
         aria-labelledby="publications-title"
       >
+
         <h2 id="publications-title">
           Publications
         </h2>
 
+
         <section aria-labelledby="conf-title">
+
           <h3 id="conf-title">
             Refereed Conference Papers
           </h3>
 
+
           <ul class="plain-list">
+
             <li>
               Ryuichi Mogami and Ryoji Tanabe,
               Effects of Objective Normalization on Regions of Interest in
@@ -406,6 +550,7 @@
                 pdf
               </a>.
             </li>
+
 
             <li>
               Ryuichi Mogami and Ryoji Tanabe,
@@ -420,16 +565,27 @@
                 code
               </a>.
             </li>
+
           </ul>
+
         </section>
 
 
         <section aria-labelledby="domestic-title">
-          <h3 id="domestic-title">
+
+          <h3
+            id="domestic-title"
+            lang="ja"
+          >
             国内研究発表
           </h3>
 
-          <ul class="plain-list">
+
+          <ul
+            class="plain-list"
+            lang="ja"
+          >
+
             <li>
               最上龍一, 田邊遼司,
               選好に基づく進化型多目的最適化における
@@ -442,6 +598,7 @@
                 pdf
               </a>.
             </li>
+
 
             <li>
               最上龍一, 田邊遼司,
@@ -456,6 +613,7 @@
               </a>.
             </li>
 
+
             <li>
               最上龍一, 田邊遼司,
               選好に基づく進化型多目的最適化における
@@ -469,6 +627,7 @@
               </a>.
             </li>
 
+
             <li>
               最上龍一, 田邊遼司,
               混合整数ブラックボックス最適化における
@@ -481,87 +640,118 @@
                 pdf
               </a>.
             </li>
+
           </ul>
+
         </section>
+
       </section>
 
+
+      <!-- Education -->
 
       <section
         id="education"
         aria-labelledby="education-title"
       >
+
         <h2 id="education-title">
           Education
         </h2>
 
+
         <ul class="education-list">
+
           <li>
             <strong>
               Yokohama National University
             </strong>
+
             <p>
               Master of Information Science, Informatics
             </p>
+
             <p class="period">
               2025 – Present
             </p>
           </li>
 
+
           <li>
             <strong>
               Yokohama National University
             </strong>
+
             <p>
               Bachelor of Engineering,
               Computer Science and Engineering
             </p>
+
             <p class="period">
               2023 – 2025
             </p>
           </li>
+
 
           <li>
             <strong>
               National Institute of Technology (KOSEN),
               Nagano College
             </strong>
+
             <p>
               Associate's Degree in Engineering,
               Electronics and Computer Science
             </p>
+
             <p class="period">
               2018 – 2023
             </p>
           </li>
+
         </ul>
+
       </section>
 
+
+      <!-- Contact -->
 
       <section
         id="contact"
         aria-labelledby="contact-title"
       >
+
         <h2 id="contact-title">
           Contact
         </h2>
 
+
         <ul class="contact-list">
+
           <li>
             Email: n.ryuichi.mogami[at]gmail.com
           </li>
+
         </ul>
+
       </section>
+
 
     </main>
 
 
     <footer class="site-footer">
+
       <div class="inner">
+
         <p>
           Last Updated: September 3, 2026
         </p>
+
       </div>
+
     </footer>
+
 
   </body>
 </html>
