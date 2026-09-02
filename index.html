@@ -203,23 +203,51 @@ dd {
 p {
   margin: .25rem 0;
 }
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1rem;
+  margin: .2rem 0 .8rem;
+}
+
+.education-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.education-list li {
+  padding: .6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.education-list li:last-child {
+  border-bottom: 0;
+}
+
+.education-list strong {
+  font-weight: 650;
+}
     </style>
 
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Ryuichi Mogami",
-        "alternateName": "最上龍一",
-        "url": "https://ryuichi-mogami.github.io/",
-        "affiliation": {
-          "@type": "CollegeOrUniversity",
-          "name": "Yokohama National University"
-        },
-        "sameAs": [
-          "https://github.com/ryuichi-mogami"
-        ]
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryuichi Mogami",
+      "alternateName": "最上龍一",
+      "url": "https://ryuichi-mogami.github.io/",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "Yokohama National University"
+      },
+      "sameAs": [
+        "https://scholar.google.com/citations?user=BPmeAuwAAAAJ",
+        "https://dblp.org/pid/440/1382.html",
+        "https://github.com/ryuichi-mogami"
+      ]
+    }
     </script>
   </head>
 
@@ -243,42 +271,30 @@ p {
 
       <section id="affiliation" aria-labelledby="affiliation-title">
         <h1 id="affiliation-title" class="name-en">Ryuichi Mogami</h1>
-
+      
+        <div class="profile-links">
+          <a href="https://scholar.google.com/citations?user=BPmeAuwAAAAJ"
+             target="_blank"
+             rel="noopener noreferrer">Google Scholar</a>
+      
+          <a href="https://dblp.org/pid/440/1382.html"
+             target="_blank"
+             rel="noopener noreferrer">DBLP</a>
+      
+          <a href="https://github.com/ryuichi-mogami"
+             target="_blank"
+             rel="noopener noreferrer">GitHub</a>
+        </div>
+      
         <dl class="data-list">
           <div>
-            <dt>University</dt>
+            <dt>Affiliation</dt>
             <dd>Yokohama National University</dd>
           </div>
-
+      
           <div>
-            <dt>Graduate School</dt>
-            <dd>Graduate School of Environment and Information Sciences</dd>
-          </div>
-
-          <div>
-            <dt>Department</dt>
-            <dd>Department of Information Environment</dd>
-          </div>
-
-          <div>
-            <dt>Program</dt>
-            <dd>Informatics</dd>
-          </div>
-
-          <div>
-            <dt>Laboratory</dt>
-            <dd>
-              <a
-                href="https://aopt-lab.github.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >Tanabe Laboratory</a>
-            </dd>
-          </div>
-
-          <div>
-            <dt>Degree / Year</dt>
-            <dd>Master's Program, Year 2</dd>
+            <dt>Degree</dt>
+            <dd>Master's Program</dd>
           </div>
         </dl>
       </section>
@@ -335,31 +351,24 @@ p {
 
       <section id="education" aria-labelledby="education-title">
         <h2 id="education-title">Education</h2>
-
-        <ul class="timeline">
+      
+        <ul class="education-list">
           <li>
-            <p class="period">April 2025</p>
-            <p>
-              Entered the Master's Program, Department of Information Environment
-              (Informatics), Graduate School of Environment and Information Sciences,
-              Yokohama National University.
-            </p>
+            <strong>Yokohama National University</strong>
+            <p>Master of Information Science, Informatics</p>
+            <p class="period">2025 – Present</p>
           </li>
-
+      
           <li>
-            <p class="period">March 2025</p>
-            <p>
-              Graduated from the Computer Science and Engineering Program,
-              College of Engineering Science, Yokohama National University.
-            </p>
+            <strong>Yokohama National University</strong>
+            <p>Bachelor of Engineering, Computer Science and Engineering</p>
+            <p class="period">2023 – 2025</p>
           </li>
-
+      
           <li>
-            <p class="period">April 2023</p>
-            <p>
-              Graduated from the Department of Electronics and Computer Science,
-              National Institute of Technology (KOSEN), Nagano College.
-            </p>
+            <strong>National Institute of Technology (KOSEN), Nagano College</strong>
+            <p>Associate's Degree in Engineering, Electronics and Computer Science</p>
+            <p class="period">2018 – 2023</p>
           </li>
         </ul>
       </section>
