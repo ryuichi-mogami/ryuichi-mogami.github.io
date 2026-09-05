@@ -8,7 +8,7 @@
 
     <meta
       name="description"
-      content="Ryuichi Mogami (最上龍一). Research on evolutionary computation."
+      content="Ryuichi Mogami (最上龍一)."
     >
 
     <link rel="canonical" href="https://ryuichi-mogami.github.io/">
@@ -20,7 +20,7 @@
     <meta property="og:title" content="Ryuichi Mogami">
     <meta
       property="og:description"
-      content="Ryuichi Mogami (最上龍一). Research on evolutionary computation."
+      content="Ryuichi Mogami (最上龍一)."
     >
     <meta property="og:url" content="https://ryuichi-mogami.github.io/">
 
@@ -29,7 +29,7 @@
     <meta name="twitter:title" content="Ryuichi Mogami">
     <meta
       name="twitter:description"
-      content="Ryuichi Mogami (最上龍一). Research on evolutionary computation."
+      content="Ryuichi Mogami (最上龍一)."
     >
 
     <style>
@@ -114,10 +114,6 @@
         margin: .4rem 0 .4rem;
       }
 
-      /*
-       * English name:
-       * original color, size, and weight are preserved.
-       */
       .name-en,
       .period,
       .status {
@@ -125,9 +121,7 @@
         font-weight: 500;
       }
 
-      /*
-       * Place the Japanese name below the English name.
-       */
+      /* English and Japanese names */
       .profile-name {
         display: flex;
         flex-direction: column;
@@ -135,10 +129,6 @@
         gap: 0;
       }
 
-      /*
-       * Japanese name:
-       * smaller and secondary.
-       */
       .name-ja {
         color: var(--muted);
         font-size: .5em;
@@ -146,6 +136,12 @@
         line-height: 1.4;
         margin-top: .05rem;
         letter-spacing: .04em;
+      }
+
+      /* Research field shown below the name */
+      .research-interest {
+        margin: .25rem 0 .55rem;
+        color: var(--muted);
       }
 
       .site-header nav ul {
@@ -281,45 +277,49 @@
 
     <!-- Structured data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://ryuichi-mogami.github.io/#website",
-          "url": "https://ryuichi-mogami.github.io/",
-          "name": "Ryuichi Mogami"
-        },
-        {
-          "@type": "ProfilePage",
-          "@id": "https://ryuichi-mogami.github.io/#profilepage",
-          "url": "https://ryuichi-mogami.github.io/",
-          "name": "Ryuichi Mogami",
-          "isPartOf": {
-            "@id": "https://ryuichi-mogami.github.io/#website"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://ryuichi-mogami.github.io/#website",
+            "url": "https://ryuichi-mogami.github.io/",
+            "name": "Ryuichi Mogami"
           },
-          "mainEntity": {
-            "@id": "https://ryuichi-mogami.github.io/#person"
+          {
+            "@type": "ProfilePage",
+            "@id": "https://ryuichi-mogami.github.io/#profilepage",
+            "url": "https://ryuichi-mogami.github.io/",
+            "name": "Ryuichi Mogami",
+            "isPartOf": {
+              "@id": "https://ryuichi-mogami.github.io/#website"
+            },
+            "mainEntity": {
+              "@id": "https://ryuichi-mogami.github.io/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://ryuichi-mogami.github.io/#person",
+            "name": "Ryuichi Mogami",
+            "alternateName": "最上龍一",
+            "url": "https://ryuichi-mogami.github.io/",
+            "affiliation": {
+              "@type": "CollegeOrUniversity",
+              "name": "Yokohama National University"
+            },
+            "knowsAbout": [
+              "Multi-objective Optimization"
+            ],
+            "sameAs": [
+              "https://scholar.google.com/citations?user=BPmeAuwAAAAJ",
+              "https://dblp.org/pid/440/1382.html",
+              "https://github.com/ryuichi-mogami",
+              "https://www.linkedin.com/in/ryuichi-mogami-0a4a7a40a/"
+            ]
           }
-        },
-        {
-          "@type": "Person",
-          "@id": "https://ryuichi-mogami.github.io/#person",
-          "name": "Ryuichi Mogami",
-          "alternateName": "最上龍一",
-          "url": "https://ryuichi-mogami.github.io/",
-          "affiliation": {
-            "@type": "CollegeOrUniversity",
-            "name": "Yokohama National University"
-          },
-          "sameAs": [
-            "https://scholar.google.com/citations?user=BPmeAuwAAAAJ",
-            "https://dblp.org/pid/440/1382.html",
-            "https://github.com/ryuichi-mogami"
-          ]
-        }
-      ]
-    }
+        ]
+      }
     </script>
   </head>
 
@@ -334,7 +334,7 @@
         <div class="inner">
           <ul>
             <li>
-              <a href="#affiliation">Affiliation</a>
+              <a href="#profile">Profile</a>
             </li>
 
             <li>
@@ -357,12 +357,12 @@
 
       <!-- Profile -->
       <section
-        id="affiliation"
-        aria-labelledby="affiliation-title"
+        id="profile"
+        aria-labelledby="profile-title"
       >
 
         <h1
-          id="affiliation-title"
+          id="profile-title"
           class="profile-name"
         >
           <span class="name-en">
@@ -376,6 +376,10 @@
             最上龍一
           </span>
         </h1>
+
+        <p class="research-interest">
+          Multi-objective Optimization
+        </p>
 
         <div class="profile-links">
 
@@ -403,7 +407,6 @@
             GitHub
           </a>
 
-        </div>
           <a
             href="https://www.linkedin.com/in/ryuichi-mogami-0a4a7a40a/"
             target="_blank"
@@ -633,7 +636,7 @@
     <footer class="site-footer">
       <div class="inner">
         <p>
-          Last Updated: September 3, 2026
+          Last Updated: September 5, 2026
         </p>
       </div>
     </footer>
